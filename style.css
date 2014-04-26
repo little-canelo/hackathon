@@ -1,0 +1,33 @@
+
+html{
+    
+}
+
+root { 
+    display: block;
+}
+
+body {
+    background-color: red;
+    
+}
+
+head {
+    height: 200px;
+    width: 200px;
+}
+
+nav {
+    display: inline-block;
+    /*
+    height: 200px;
+    width: 200px;
+    */
+}
+
+article {
+    background-color: yellow;
+    height: 200px;
+    width: 200px;   
+    
+}
