@@ -1,0 +1,23 @@
+/* 
+    Document   : css
+    Created on : Apr 26, 2014, 11:12:53 AM
+    Author     : Student
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    background-size:cover;
+    background-image: url("goal.jpg");
+}
+
+h1 {
+    background-color:white;
+}
+p {
+    background-color:green;
+}
