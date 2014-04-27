@@ -9,29 +9,61 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <nav>
-            <a href="http://www.google.com">
-                google
-            </a>
-            <a href="http://www.google.com">
-                soccer
-            </a>
-            <a href="http://www.google.com">
-                games
-            </a>
-        </nav>
-        <div>
-            <h1>
+        <div>            
                 <center>
-                    Whats Going on Right now!
+                    <h1>
+                        Home!
+                    </h1>
+                    <h2>
+                        Celebrity News
+                    </h2>
                 </center>
-            </h1>
         </div>
+            <nav>
+                <a href="soccer/index.html">
+                    soccer
+                </a>
+                <a href="http://www.google.com">
+                    google
+                </a>
+                <a href="games/index.html">
+                    games
+                </a>
+                <a href="http://www.google.com">
+                    poop
+                </a>
+            </nav>
             <center>
                 <img src="nuke.jpg" height="300px" width="900px">
             </center>  
             <article>
-                
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			// where are we getting the content from?
+			$.ajax('https://api.datamarket.azure.com/Bing/Search/News?$format=json&Query=%27celebrities%27', {
+				headers: {
+					// give them our account details
+					'Authorization': 'Basic ' + btoa('N95x+ajghz4OP94AMQgR46/TkWDBwxmtatNd5Wkvkrc:N95x+ajghz4OP94AMQgR46/TkWDBwxmtatNd5Wkvkrc')
+				}
+			}).done(function(data) {
+				var news = data.d;
+				// we loop through each of the results returned by Microsoft
+				for(var i = 0; i < news.results.length; i++) {
+					// for each of the results, we take the title, url, and descrition out, and parse them into HTML
+					var html = '<div class="art">';
+					html += '<a href="' + news.results[i].Url + '">';
+					html += '<h3>' + news.results[i].Title + '</h3>';
+					html += '</a>';
+					html += '<p>' + news.results[i].Description + '</p>';
+ 
+					// we put the html we just generated into the news div.
+					$("#news").append(html);
+				}
+			});
+		</script>
             </article>
+                <div id="news">
+                
+                </div>
     </body>
 </html>

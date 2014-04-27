@@ -8,8 +8,7 @@ root {
 }
 
 body {
-    background-color: red;
-    
+    background-image: url("floral.jpeg");
 }
 
 head {
@@ -30,4 +29,9 @@ article {
     height: 200px;
     width: 200px;   
     
+}
+
+.art {
+    background-color: black;
+    color: white;
 }
