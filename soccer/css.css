@@ -21,3 +21,11 @@ h1 {
 p {
     background-color:green;
 }
+
+.article{
+    background-color:green;
+}
+
+.article:hover {
+    background-color:pink;
+}

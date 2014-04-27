@@ -29,9 +29,46 @@ The games’ brightest stars, the sports most formidable teams all are bound to 
 
 The games’ brightest stars, the sports most formidable teams all are bound to Brazil where they will converge this summer to put on an unrivaled tournament that transcends the field and inspires fans around the world. Will you be ready?
             </p>
-            <div>
-                
-            
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			// where are we getting the content from?
+			$.ajax('https://api.datamarket.azure.com/Bing/Search/News?$format=json&Query=%27soccer%27', {
+				headers: {
+					// give them our account details
+					'Authorization': 'Basic ' + btoa('N95x+ajghz4OP94AMQgR46/TkWDBwxmtatNd5Wkvkrc:N95x+ajghz4OP94AMQgR46/TkWDBwxmtatNd5Wkvkrc')
+				}
+			}).done(function(data) {
+				var news = data.d;
+				// we loop through each of the results returned by Microsoft
+				for(var i = 0; i < news.results.length; i++) {
+					// for each of the results, we take the title, url, and descrition out, and parse them into HTML
+					var html = '<div class="article">';
+					html += '<a class="link" href="' + news.results[i].Url + '">';
+					html += '<h3>' + news.results[i].Title + '</h3>';
+					html += '</a>';
+					html += '<p>' + news.results[i].Description + '</p>';
+ 
+					// we put the html we just generated into the news div.
+					$(".news").append(html);
+				}
+			});
+		</script>
+                <div class ="news">
+                    <div class='article'>
+                        <h3>
+                            'title
+                        </h3>
+                        <p>Content
+                        </p>
+                    </div>
+                    <div class='article'>
+                        <h3>
+                            title
+                        </h3>
+                        <p>more Content
+                        </p>
+                    </div>
+                </div>
         </section>    
     </body>
 </html>
